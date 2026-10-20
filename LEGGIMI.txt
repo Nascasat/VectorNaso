@@ -1,0 +1,31 @@
+VectorNaso — motore VTracer
+
+REQUISITI
+- Windows 10/11
+- Python 3.8 o successivo, 64 bit
+- Connessione internet solo al primo avvio per installare il motore
+
+AVVIO
+1. Fai doppio clic su Avvia-VectorNaso.bat.
+2. Al primo avvio vengono installati VTracer e i componenti per l'esportazione vettoriale.
+3. Si apre VectorNaso nel browser all'indirizzo http://127.0.0.1:8766/. Lascia aperta la finestra nera mentre usi l'app.
+4. Carica l'immagine, scegli il profilo e il dettaglio, poi genera l'anteprima.
+5. Scegli SVG, PDF, EPS o DXF e premi Esporta quando sei soddisfatto.
+
+EPS PER ILLUSTRATOR
+L'opzione "AI · EPS per Illustrator" scarica un file con estensione .ai,
+contenente un disegno EPS vettoriale apribile in Adobe Illustrator. Non è un
+file AI nativo; per ottenerlo, apri il file in Illustrator e usa Salva con
+nome > Adobe Illustrator (.ai).
+
+DXF
+Il DXF contiene contorni e aree vettoriali colorate. Le curve vengono
+approssimate con polilinee e le unità corrispondono alle coordinate SVG.
+
+Le immagini sono elaborate sul PC tramite il server locale 127.0.0.1; non vengono
+inviate a un servizio remoto. Premi Ctrl+C nella finestra del server per chiuderlo.
+
+STATO
+VectorNaso usa il motore VTracer con curve spline, segmentazione a colori,
+filtro delle piccole macchie e anteprima affiancata. L'obiettivo è un flusso
+autonomo e verificabile; i risultati possono differire da Vector Magic.

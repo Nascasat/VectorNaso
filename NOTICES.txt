@@ -1,0 +1,10 @@
+VectorNaso incorporates VTracer, an open-source raster-to-vector engine.
+Project: https://github.com/visioncortex/vtracer
+Package: https://pypi.org/project/vtracer/1.0.0a4/
+Version: 1.0.0a4
+License: MIT OR Apache-2.0
+Copyright (c) 2024 TSANG, Hao Fung
+
+The VTracer license permits use, modification, and redistribution subject to
+including the applicable copyright and license notices. See the upstream
+repository's LICENSE file for the complete terms.

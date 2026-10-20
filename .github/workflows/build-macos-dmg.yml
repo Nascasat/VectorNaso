@@ -1,0 +1,40 @@
+name: Build macOS DMGs
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: macos-15
+            architecture: arm64
+          - runner: macos-15-intel
+            architecture: x86_64
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - name: Check out VectorNaso
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build app and disk image
+        run: |
+          chmod +x packaging/Build-macOS.command
+          ./packaging/Build-macOS.command
+
+      - name: Upload installable DMG
+        uses: actions/upload-artifact@v4
+        with:
+          name: VectorNaso-macOS-${{ matrix.architecture }}
+          path: Releases/macOS/VectorNaso-macOS.dmg
+          if-no-files-found: error
+          retention-days: 14

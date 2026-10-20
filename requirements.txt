@@ -1,0 +1,6 @@
+vtracer==1.0.0a4
+Pillow>=10.0
+reportlab>=4.2
+svglib>=1.5.1
+ezdxf>=1.4
+svgpathtools>=1.6
