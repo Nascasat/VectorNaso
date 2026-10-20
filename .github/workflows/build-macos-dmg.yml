@@ -1,4 +1,4 @@
-name: Build macOS DMGs
+name: Build VectorNaso installers
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ permissions:
   contents: read
 
 jobs:
-  build:
+  build-macos:
     strategy:
       fail-fast: false
       matrix:
@@ -36,5 +36,28 @@ jobs:
         with:
           name: VectorNaso-macOS-${{ matrix.architecture }}
           path: Releases/macOS/VectorNaso-macOS.dmg
+          if-no-files-found: error
+          retention-days: 14
+
+  build-windows:
+    runs-on: windows-2022
+    steps:
+      - name: Check out VectorNaso
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build Windows installer
+        shell: pwsh
+        run: ./packaging/Build-Windows.ps1
+
+      - name: Upload Windows installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: VectorNaso-Windows-Setup
+          path: Releases/Windows/VectorNaso-Setup.exe
           if-no-files-found: error
           retention-days: 14
