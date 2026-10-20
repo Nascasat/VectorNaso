@@ -1,0 +1,31 @@
+name: Build VectorNaso for Windows
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-windows:
+    runs-on: windows-2022
+    steps:
+      - name: Check out VectorNaso
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build Windows installer
+        shell: pwsh
+        run: ./packaging/Build-Windows.ps1 -Python python
+
+      - name: Upload Windows installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: VectorNaso-Windows-Setup
+          path: Releases/Windows/VectorNaso-Setup.exe
+          if-no-files-found: error
+          retention-days: 14

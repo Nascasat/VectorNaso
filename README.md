@@ -6,10 +6,8 @@ Il codice, gli asset grafici e la cartella `Samples` sono inclusi nei pacchetti 
 
 ## Pacchetti installabili
 
-Apri la scheda **Actions** del repository GitHub e avvia **Build VectorNaso installers**. La compilazione produce:
+Apri la scheda **Actions** del repository GitHub e avvia il workflow corrispondente. Gli artefatti sono disponibili per 14 giorni.
 
-- macOS Apple Silicon (`arm64`): DMG installabile.
-- macOS Intel (`x86_64`): DMG installabile.
-- Windows: `VectorNaso-Setup.exe`.
-
-Scarica l'artefatto per il tuo sistema operativo dalla pagina dell'esecuzione. Gli artefatti sono disponibili per 14 giorni.
+- macOS Apple Silicon (`arm64`): workflow **Build macOS DMGs**.
+- macOS Intel (`x86_64`): workflow **Build macOS DMGs**.
+- Windows: workflow **Build VectorNaso for Windows**, che produce `VectorNaso-Setup.exe`.
